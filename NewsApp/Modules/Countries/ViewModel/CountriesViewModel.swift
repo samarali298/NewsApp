@@ -37,6 +37,7 @@ class DefaultCountriesViewModel: CountriesViewModel {
         }
         _ = DevicePersistenceManager.shared().saveSelectedCountry(countryName)
         _ = DevicePersistenceManager.shared().saveLastRefreshTime("")
+        _ = DevicePersistenceManager.shared().saveSelectedCategory("")
         let categoriesVC = CategoriesViewController()
         categoriesVC.create(with: DefaultCategoriesViewModel(view: categoriesVC))
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
