@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="NewsApp" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="66B-Ju-Mto" id="8JJ-KO-zt6"/>
+                <outlet property="errorLabel" destination="OyD-Sq-JcV" id="oqD-hS-7o8"/>
+                <outlet property="newsTableView" destination="4dk-4Y-apa" id="qlp-Dy-Bqy"/>
+                <outlet property="searchView" destination="9NQ-9h-Sgd" id="xe6-U4-JKy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4dk-4Y-apa">
+                    <rect key="frame" x="10" y="54" width="394" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <searchBar key="tableHeaderView" contentMode="redraw" id="9NQ-9h-Sgd">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="56"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="mt5-dQ-RG2"/>
+                        </connections>
+                    </searchBar>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1IF-Pr-4Qd"/>
+                        <outlet property="delegate" destination="-1" id="T0n-ZF-NJp"/>
+                    </connections>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyD-Sq-JcV">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
+                    <color key="textColor" systemColor="linkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="66B-Ju-Mto">
+                    <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                    <color key="color" systemColor="linkColor"/>
+                </activityIndicatorView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="OyD-Sq-JcV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0FX-1I-Jjl"/>
+                <constraint firstItem="66B-Ju-Mto" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="C2F-Wq-LhS"/>
+                <constraint firstItem="4dk-4Y-apa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="CAT-mC-UIE"/>
+                <constraint firstItem="66B-Ju-Mto" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Eau-dX-sKU"/>
+                <constraint firstItem="4dk-4Y-apa" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="ceH-VG-VYX"/>
+                <constraint firstItem="OyD-Sq-JcV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h4r-ce-Ae5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OyD-Sq-JcV" secondAttribute="trailing" id="kAg-bw-lwX"/>
+                <constraint firstItem="4dk-4Y-apa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="knV-oO-Kit"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OyD-Sq-JcV" secondAttribute="bottom" id="q8l-pt-EhK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4dk-4Y-apa" secondAttribute="trailing" constant="10" id="vB6-TN-aQm"/>
+            </constraints>
+            <point key="canvasLocation" x="-14.492753623188406" y="65.625"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
