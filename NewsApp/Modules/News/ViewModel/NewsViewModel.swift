@@ -105,20 +105,26 @@ extension DefaultNewsViewModel {
                     guard let models = result else {
                         return
                     }
-                    self?.totalNews = []
-                    for model in models {
-                    
-                        guard let articalobj = self?.convertDBModel(dbModel: model) else {
-                            return
-                        }
-                        self?.totalNews.append(articalobj)
-                    }
                     self?.totalNewsCount = DevicePersistenceManager.shared().getTotalNewsCount() ?? 0
-                    self?.isLoading = false
-                    self?.view?.stopActivityIndicator()
-                    self?.pageIndex = 1
-                    self?.lastSuccessfullyLoadedPage = self?.pageIndex
-                    self?.view?.loadNews()
+                    if models.count < 20 && models.count < self?.totalNewsCount ?? 0 {
+                        self?.reloadNews()
+                    } else {
+                        self?.totalNews = []
+                        for model in models {
+                        
+                            guard let articalobj = self?.convertDBModel(dbModel: model) else {
+                                return
+                            }
+                            self?.totalNews.append(articalobj)
+                        }
+                        self?.isLoading = false
+                        self?.view?.stopActivityIndicator()
+                        self?.pageIndex = 1
+                        self?.lastSuccessfullyLoadedPage = self?.pageIndex
+                        self?.view?.loadNews()
+                        self?.view?.stopTableLoader()
+                    }
+                    
                 }
                 print("Select from DB")
             }
@@ -179,6 +185,7 @@ extension DefaultNewsViewModel {
             }
             self?.isLoading = false
             self?.view?.stopActivityIndicator()
+            self?.view?.stopTableLoader()
             self?.view?.loadNews()
         }
         

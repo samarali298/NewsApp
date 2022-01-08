@@ -115,9 +115,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
             spinner.color = UIColor.link
             spinner.startAnimating()
             spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-
             self.newsTableView.tableFooterView = spinner
-            self.newsTableView.tableFooterView?.isHidden = false
         }
     }
 }
@@ -136,8 +134,10 @@ extension NewsViewController: NewsViewControllerProtocol {
     }
     
     func stopTableLoader() {
-        spinner.stopAnimating()
-        spinner.isHidden = true
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
+        }
     }
     
     func startActivityIndicator() {
